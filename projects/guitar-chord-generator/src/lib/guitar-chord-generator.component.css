@@ -1,0 +1,41 @@
+/* Class for frets */
+.frets {
+    stroke: black;
+    stroke-width: 3;
+}
+.fret-label {
+    alignment-baseline: central;
+    text-anchor: middle;
+}
+
+/* Class for strings */
+.strings {
+    stroke: black;
+    stroke-width: 1;
+}
+.string-tuning-label{
+    alignment-baseline: central;
+    text-anchor: middle;
+}
+.no-strum-mark{
+    stroke: black;
+    stroke-width: 2;
+}
+
+/* Class for labels (finger numbering) for finger circles */
+.fingercircle-label {
+    alignment-baseline: central;
+    fill: white;
+    text-anchor: middle;
+    font-weight: bold;
+}
+
+/* Class for finger-circle disc */
+.finger-circle {
+    r: 20;
+}
+
+/* Class for bar */
+.bar {
+    fill: black;
+}

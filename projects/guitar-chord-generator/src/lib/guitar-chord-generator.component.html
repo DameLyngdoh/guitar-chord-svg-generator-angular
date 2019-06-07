@@ -1,0 +1,41 @@
+<svg *ngIf="!this.hasError" [attr.width]="width" [attr.height]="height">
+  
+    <!-- Frets -->
+    <line class="frets" *ngFor="let f of frets" [attr.x1]="f.left.p1.x" [attr.x2]="f.left.p2.x" [attr.y1]="f.left.p1.y" [attr.y2]="f.left.p2.y" />
+    <!-- Last fret -->
+    <line class="frets" [attr.x1]="frets[frets.length-1].right.p1.x" [attr.x2]="frets[frets.length-1].right.p2.x" [attr.y1]="frets[frets.length-1].right.p1.y" [attr.y2]="frets[frets.length-1].right.p2.y" />
+    <!-- Fret label -->
+    <text *ngIf="fretLabelLocation==-1" class="fret-label" [attr.x]="frets[frets.length-1].horizontalCenter" [attr.y]="frets[frets.length-1].left.p1.y - 15">{{startFret + 1}}-fr</text>
+    <text *ngIf="fretLabelLocation==1" class="fret-label" [attr.x]="frets[frets.length-1].horizontalCenter" [attr.y]="frets[frets.length-1].left.p2.y + 15">{{startFret + 1}}-fr</text>
+  
+    <!-- Strings -->
+    <g *ngFor="let s of strings">
+      <line class="strings" [attr.x1]="s.p1.x" [attr.x2]="s.p2.x" [attr.y1]="s.p1.y" [attr.y2]="s.p2.y" />
+      
+      <!-- String label -->
+      <text *ngIf="stringTuningLocation==-1" class="string-tuning-label" [attr.x]="s.p1.x - 15" [attr.y]="s.p1.y">{{s.label}}</text>
+      <text *ngIf="stringTuningLocation==1" class="string-tuning-label" [attr.x]="s.p2.x + 15" [attr.y]="s.p2.y">{{s.label}}</text>
+      
+      <!-- No strum mark -->
+      <g *ngIf="s.strum">
+        <line class="no-strum-mark" [attr.x1]="frets[frets.length-1].horizontalCenter - 10" [attr.x2]="frets[frets.length-1].horizontalCenter + 10" [attr.y1]="s.p2.y - 10" [attr.y2]="s.p2.y + 10"/>
+        <line class="no-strum-mark" [attr.x1]="frets[frets.length-1].horizontalCenter + 10" [attr.x2]="frets[frets.length-1].horizontalCenter - 10" [attr.y1]="s.p2.y - 10" [attr.y2]="s.p2.y + 10"/>
+      </g>
+    </g>
+    
+    <!-- Finger circles -->
+    <g *ngFor="let fc of fingerCircles">
+      <circle class="finger-circle" [attr.cx]="fc.x" [attr.cy]="fc.y"></circle>
+      <!-- Circle label -->
+      <text class="fingercircle-label" [attr.x]="fc.x" [attr.y]="fc.y">{{fc.n}}</text>
+    </g>
+  
+    <!-- Bar -->
+    <rect *ngIf="chord.hasBar" class="bar" [attr.x]="bar.startPoint.x" [attr.y]="bar.startPoint.y" [attr.width]="bar.width" [attr.height]="bar.height"/>
+  
+  </svg>
+  
+  <!-- Error -->
+  <div *ngIf="this.hasError">
+    {{errorMessage}}
+  </div>
