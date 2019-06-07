@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "guitar-chord-generator": [
+        "dist/guitar-chord-generator"
+      ],
+      "guitar-chord-generator/*": [
+        "dist/guitar-chord-generator/*"
+      ]
+    }
   }
 }

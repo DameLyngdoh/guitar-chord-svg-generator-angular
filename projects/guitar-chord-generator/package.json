@@ -1,0 +1,40 @@
+{
+  "name": "guitar-chord-generator",
+  "version": "0.0.1",
+  "description": "An Angular component for displaying an SVG image in an Angular application.",
+  "author": "Dame Lyngdoh <damelyngdoh@outlook.com>",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  },
+  "main": "bundles/guitar-chord-generator.umd.js",
+  "module": "fesm5/guitar-chord-generator.js",
+  "es2015": "fesm2015/guitar-chord-generator.js",
+  "esm5": "esm5/guitar-chord-generator.js",
+  "esm2015": "esm2015/guitar-chord-generator.js",
+  "fesm5": "fesm5/guitar-chord-generator.js",
+  "fesm2015": "fesm2015/guitar-chord-generator.js",
+  "typings": "guitar-chord-generator.d.ts",
+  "metadata": "guitar-chord-generator.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  },
+  "keywords": [
+    "angular",
+    "component",
+    "guitar",
+    "chord",
+    "svg",
+    "typescript"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/DameLyngdoh/guitar-chord-svg-generator-angular",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DameLyngdoh/guitar-chord-svg-generator-angular"
+  },
+  "bugs": {
+    "url": "https://github.com/DameLyngdoh/guitar-chord-svg-generator-angular/issues"
+  }
+}

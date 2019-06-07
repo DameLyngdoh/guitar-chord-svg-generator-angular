@@ -130,6 +130,41 @@
           }
         }
       }
+    },
+    "guitar-chord-generator": {
+      "root": "projects/guitar-chord-generator",
+      "sourceRoot": "projects/guitar-chord-generator/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/guitar-chord-generator/tsconfig.lib.json",
+            "project": "projects/guitar-chord-generator/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/guitar-chord-generator/src/test.ts",
+            "tsConfig": "projects/guitar-chord-generator/tsconfig.spec.json",
+            "karmaConfig": "projects/guitar-chord-generator/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/guitar-chord-generator/tsconfig.lib.json",
+              "projects/guitar-chord-generator/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "guitar-chord-app"
