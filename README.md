@@ -2,12 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-## Setting Up
-**Manual**
+## Installation
+### Manual
 Simply copy the `guitar-chord-generator` directory, which is a library, in the `projects` direcotry and add it to the `projects` directory of your angular application. To use the component, you would have to add the import code in relevant components/modules.
-## Chord Object Creation
 
-**Using JSON**
+## Chord Object
+
+### Initialization Using JSON
+
 To create a new chord using a JSON object, simply create a new object of type `any` and then use the following key-value pairs:
 
     "name": <name of the chord>,
@@ -43,7 +45,8 @@ In case if `barCount` is ommited and `barFret` is specified then the default val
 The `noStrumString` key takes an array of string numbers.
 After setting up this JSON object, you can pass this object to the `loadChordFromJson` method or `loadChordFromJsonString` in case if the JSON is represented as a string. The methods will throw exceptions in case if there exists invalid fret numbers, string numbers or other inconsistencies.
 
-**Using Chord object**
+### Initialization Using Chord object
+
 You can also use the `addNote(<fret-number>: number, <string-number: number>, <finger-number>: number)` method, which is self-explanatory, to add a note and the `addBar(<fret-number>: number, <bar-count>: number)` method to add a bar. To toggle between strumming a string or not use the `toggleNoStrumStrings(<string-number>: number)` method. The following code creates a chord object for `F major` similar to the above example:
 
     let c : Chord = new Chord();
@@ -52,17 +55,75 @@ You can also use the `addNote(<fret-number>: number, <string-number: number>, <f
     c.addNote(3, 4, 4);
     c.addBar(1,6);
  
- ## Using the Component
- To use the component in your angular application, simply add the following component in the template:
+## API
 
-    <lib-guitar-chord-generator [width]="number" [height]="number" [chord]="chord-object" [config]="config-object"></lib-guitar-chord-generator>
-The `config` input is optional but all the other inputs are mandatory to be specified. In case if the `config` input is ignored or not specified then the default configurations will be used.
-## Configuration
+### @Inputs()
+| Input | Type | Required | Description |
+|--|--|--|--|
+| width | number | **Yes** | the width of the SVG component. |
+| height | number | **Yes** | the height of the SVG component. |
+| chord | object | **Yes** | object of type **Chord** which is configured with the required chord. |
+| config | object | Optional, default: default | config object of type **GCSGConfig** which has the required configuration. |
+
+### Configuration
 The `config` input can be used to send configuration input to the component.
-## Style
+
+    "offset": {
+	    "horizontal":  30,
+	    "vertical":  30
+    },
+    "string": {
+	    "count":  6,
+	    "labelLocation":  1,
+	    "tuning": ['e', 'B', 'G', 'D', 'A', 'E']
+    },
+    "fret": {
+	    "minimumFretCount":  3,
+	    "offset":  7,
+	    "labelLocation":  -1
+    },
+    "bar": {
+	    "offset":  7,
+	    "width":  10
+    }
+| Key | Description |
+|--|--|
+| offset.horizontal | the horizontal padding from the top and bottom borders of the SVG |
+| offset.vertical | the vertical padding from the right and left borders of the SVG |
+| string.count | the default number of strings |
+| string.labelLocation | 1 - right, -1 - left of the fret board |
+| string.tuning | the default tuning of the strings |
+| fret.minimumFretCount | the minimum number of frets that will be displayed irrespective of how many fret(s) is required by a chord |
+| fret.offset | the offset of the top and bottom edges of the fret lines from the edge strings |
+| fret.labelLocation | 1 - bottom, -1 - top of the fret board |
+| bar.offset | the offset of the top and bottom edges of the bar lines from the strings |
+| bar.width | the width of the bar |
+
+### Style
 The default style is specified in `guitar-chord-generator\src\lib\guitar-chord-generator.component.css` stylesheet file. You can edit this file for your own style preferences.
-## Example
+
+## Usage
+ 1. Register the `GuitarChordGeneratorModule` in your app-module by adding the following import:
+`import { GuitarChordGeneratorModule } from  'projects/guitar-chord-generator/src/public-api';`
+2. Add the module to the `imports` of the `@NgModule` decorator
+```typescript
+@NgModule({
+	declarations: [
+		AppComponent
+	],
+	imports: [
+		BrowserModule,
+		GuitarChordGeneratorModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
+})```
+3. Import `Chord` class to the component which will display the SVG and configure the chord object to pass as input to the component.
+4. 4. Use the `lib-guitar-chord-generator` directive in your component's template with the above mentioned inputs.
+
+## Example\Demo
 The angular app specified in this repository will display the `F major` chord. Check out the `app.component.ts` (or app component) and the template file to see the code for the example.
+Run `ng serve` in the application directory to see the output in your browser.
 
 ## Development server
 
