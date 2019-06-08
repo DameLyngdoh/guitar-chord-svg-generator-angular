@@ -117,7 +117,8 @@ The default style is specified in `guitar-chord-generator\src\lib\guitar-chord-g
 	],
 	providers: [],
 	bootstrap: [AppComponent]
-})```
+})
+```
 3. Import `Chord` class to the component which will display the SVG and configure the chord object to pass as input to the component.
 4. 4. Use the `lib-guitar-chord-generator` directive in your component's template with the above mentioned inputs.
 
