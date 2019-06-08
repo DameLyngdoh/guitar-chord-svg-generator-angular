@@ -1,8 +1,11 @@
 # GuitarChordApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+This is a library to generate an SVG within an Angular component to display a specific guitar chord. The `lib-guitar-chord-generator` directive can be used in the template of any component to display the SVG. 
 
 ## Installation
+### NPM
+`npm i dl-guitar-svg-chord-generator`
 ### Manual
 Simply copy the `guitar-chord-generator` directory, which is a library, in the `projects` direcotry and add it to the `projects` directory of your angular application. To use the component, you would have to add the import code in relevant components/modules.
 
@@ -99,6 +102,13 @@ The `config` input can be used to send configuration input to the component.
 | bar.offset | the offset of the top and bottom edges of the bar lines from the strings |
 | bar.width | the width of the bar |
 
+In case if you want to change only some of the configurations, say `fret.offset` to `10` you can try the following code:
+```typescript
+let c : GCSGConfig = new GCSGConfig();
+c.setConfig('fret.offset', 10);
+```
+The rest of the configuration will be set to default values by default (at the constructor of the configuration object).
+
 ### Style
 The default style is specified in `guitar-chord-generator\src\lib\guitar-chord-generator.component.css` stylesheet file. You can edit this file for your own style preferences.
 
@@ -117,7 +127,8 @@ The default style is specified in `guitar-chord-generator\src\lib\guitar-chord-g
 	],
 	providers: [],
 	bootstrap: [AppComponent]
-})```
+})
+```
 3. Import `Chord` class to the component which will display the SVG and configure the chord object to pass as input to the component.
 4. 4. Use the `lib-guitar-chord-generator` directive in your component's template with the above mentioned inputs.
 
