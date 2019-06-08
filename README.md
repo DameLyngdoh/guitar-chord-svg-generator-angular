@@ -2,6 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 This is a library to generate an SVG within an Angular component to display a specific guitar chord. The `lib-guitar-chord-generator` directive can be used in the template of any component to display the SVG. 
+Check out [this link](https://medium.com/@esanjiv/complete-beginner-guide-to-publish-an-angular-library-to-npm-d42343801660) if you want to develop and publish your own library or component online.
 
 ## Installation
 ### NPM
