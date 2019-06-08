@@ -5,7 +5,7 @@ import { GCSGConfig } from './gcsgconfig';
 @Component({
   selector: 'lib-guitar-chord-generator',
   templateUrl: './guitar-chord-generator.component.html',
-  styles: ['./guitar-chord-generator.component.css']
+  styleUrls: ['./guitar-chord-generator.component.css']
 })
 export class GuitarChordGeneratorComponent implements OnInit {
 
