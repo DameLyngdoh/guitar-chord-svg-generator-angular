@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
+## Setting Up
+**Manual**
+Simply copy the `guitar-chord-generator` directory, which is a library, in the `projects` direcotry and add it to the `projects` directory of your angular application. To use the component, you would have to add the import code in relevant components/modules.
 ## Chord Object Creation
 
 **Using JSON**
@@ -48,6 +51,18 @@ You can also use the `addNote(<fret-number>: number, <string-number: number>, <f
     c.addNote(3, 5, 3);
     c.addNote(3, 4, 4);
     c.addBar(1,6);
+ 
+ ## Using the Component
+ To use the component in your angular application, simply add the following component in the template:
+
+    <lib-guitar-chord-generator [width]="number" [height]="number" [chord]="chord-object" [config]="config-object"></lib-guitar-chord-generator>
+The `config` input is optional but all the other inputs are mandatory to be specified. In case if the `config` input is ignored or not specified then the default configurations will be used.
+## Configuration
+The `config` input can be used to send configuration input to the component.
+## Style
+The default style is specified in `guitar-chord-generator\src\lib\guitar-chord-generator.component.css` stylesheet file. You can edit this file for your own style preferences.
+## Example
+The angular app specified in this repository will display the `F major` chord. Check out the `app.component.ts` (or app component) and the template file to see the code for the example.
 
 ## Development server
 
