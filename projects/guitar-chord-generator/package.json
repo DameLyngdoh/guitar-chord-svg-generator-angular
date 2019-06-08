@@ -1,5 +1,5 @@
 {
-  "name": "guitar-chord-generator",
+  "name": "dl-guitar-svg-chord-generator",
   "version": "0.0.1",
   "description": "An Angular component for displaying an SVG image in an Angular application.",
   "author": "Dame Lyngdoh <damelyngdoh@outlook.com>",
