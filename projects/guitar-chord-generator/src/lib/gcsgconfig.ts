@@ -1,6 +1,10 @@
 export class GCSGConfig {
     private config : any;
     
+    constructor() {
+        this.config = CSGDefaultConfig;
+    }
+
     get getConfig() : any {
         return this.config;
     }
