@@ -4,7 +4,7 @@
     stroke-width: 3;
 }
 .fret-label {
-    alignment-baseline: central;
+    dominant-baseline: central;
     text-anchor: middle;
 }
 
@@ -14,7 +14,7 @@
     stroke-width: 1;
 }
 .string-tuning-label{
-    alignment-baseline: central;
+    dominant-baseline: central;
     text-anchor: middle;
 }
 .no-strum-mark{
@@ -24,7 +24,7 @@
 
 /* Class for labels (finger numbering) for finger circles */
 .fingercircle-label {
-    alignment-baseline: central;
+    dominant-baseline: central;
     fill: white;
     text-anchor: middle;
     font-weight: bold;
@@ -32,7 +32,7 @@
 
 /* Class for finger-circle disc */
 .finger-circle {
-    r: 20;
+    r: 20px;
 }
 
 /* Class for bar */
